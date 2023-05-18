@@ -1,55 +1,23 @@
 package ru.netology.javaqa;
 
 public class Radio {
-    public int currentStation;
+    private int currentStation;
+    private int currentVolume;
 
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
-    public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation < 0) {
-            newCurrentStation = 0;
-        }
-        if (newCurrentStation > 9) {
-            newCurrentStation = 9;
-        }
-        currentStation = newCurrentStation;
-    }
-
-    public void nextStation() {
+    public void setNextStation() {
         if (currentStation < 9) {
-            currentStation = currentStation + 1;
-        }
-        if (currentStation == 9) {
+            currentStation++;
+        } else {
             currentStation = 0;
         }
     }
 
-    public void prevStation() {
+    public void setPrevStation() {
         if (currentStation > 0) {
             currentStation = currentStation - 1;
-        }
-        if (currentStation == 0) {
+        } else {
             currentStation = 9;
         }
-    }
-
-
-    public int currentVolume;
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
-            newCurrentVolume = 0;
-        }
-        if (newCurrentVolume > 100) {
-            newCurrentVolume = 100;
-        }
-        currentVolume = newCurrentVolume;
     }
 
     public void increaseVolume() {
@@ -68,5 +36,33 @@ public class Radio {
         if (currentVolume <= 0) {
             currentVolume = 0;
         }
+    }
+
+    public int getCurrentStation() {
+        return currentStation;
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void setCurrentStation(int newCurrentStation) {
+        if (newCurrentStation < 0) {
+            return;
+        }
+        if (newCurrentStation > 9) {
+            return;
+        }
+        currentStation = newCurrentStation;
+    }
+
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        if (newCurrentVolume > 100) {
+            return;
+        }
+        currentVolume = newCurrentVolume;
     }
 }
