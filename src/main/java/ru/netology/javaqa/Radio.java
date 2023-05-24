@@ -1,68 +1,84 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package ru.netology.javaqa;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
     private int currentStation;
     private int currentVolume;
+    private int firstStation = 0;
+    private int countStations = 10;
+    private int lastStation = 9;
+    private int minVolume = 0;
+    private int maxVolume = 100;
+
+    public Radio(int countStations) {
+        this.countStations = countStations;
+        this.lastStation = this.firstStation + countStations - 1;
+    }
 
     public void setNextStation() {
-        if (currentStation < 9) {
-            currentStation++;
+        if (this.currentStation < this.lastStation) {
+            ++this.currentStation;
         } else {
-            currentStation = 0;
+            this.currentStation = this.firstStation;
         }
+
     }
 
     public void setPrevStation() {
-        if (currentStation > 0) {
-            currentStation = currentStation - 1;
+        if (this.currentStation > this.firstStation) {
+            --this.currentStation;
         } else {
-            currentStation = 9;
+            this.currentStation = this.lastStation;
         }
+
     }
 
     public void increaseVolume() {
-        if (currentVolume < 100) {
-            currentVolume = currentVolume + 1;
+        if (this.currentVolume < this.maxVolume) {
+            ++this.currentVolume;
         }
-        if (currentVolume >= 100) {
-            currentVolume = 100;
+
+        if (this.currentVolume >= this.maxVolume) {
+            this.currentVolume = this.maxVolume;
         }
+
     }
 
     public void decreaseVolume() {
-        if (currentVolume > 0) {
-            currentVolume = currentVolume - 1;
+        if (this.currentVolume > this.minVolume) {
+            --this.currentVolume;
         }
-        if (currentVolume <= 0) {
-            currentVolume = 0;
+
+        if (this.currentVolume <= this.minVolume) {
+            this.currentVolume = this.minVolume;
         }
-    }
 
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
     }
 
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation < 0) {
-            return;
+        if (newCurrentStation >= this.firstStation) {
+            if (newCurrentStation <= this.lastStation) {
+                this.currentStation = newCurrentStation;
+            }
         }
-        if (newCurrentStation > 9) {
-            return;
-        }
-        currentStation = newCurrentStation;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
-            return;
+        if (newCurrentVolume >= this.minVolume) {
+            if (newCurrentVolume <= this.maxVolume) {
+                this.currentVolume = newCurrentVolume;
+            }
         }
-        if (newCurrentVolume > 100) {
-            return;
-        }
-        currentVolume = newCurrentVolume;
     }
 }
