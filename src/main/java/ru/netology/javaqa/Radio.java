@@ -5,6 +5,13 @@
 
 package ru.netology.javaqa;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
     private int currentStation;
     private int currentVolume;
@@ -74,114 +81,4 @@ public class Radio {
             }
         }
     }
-
-    public Radio() {
-    }
-
-    public Radio(int currentStation, int currentVolume, int firstStation, int countStations, int lastStation, int minVolume, int maxVolume) {
-        this.currentStation = currentStation;
-        this.currentVolume = currentVolume;
-        this.firstStation = firstStation;
-        this.countStations = countStations;
-        this.lastStation = lastStation;
-        this.minVolume = minVolume;
-        this.maxVolume = maxVolume;
-    }
-
-    public int getCurrentStation() {
-        return this.currentStation;
-    }
-
-    public int getCurrentVolume() {
-        return this.currentVolume;
-    }
-
-    public int getFirstStation() {
-        return this.firstStation;
-    }
-
-    public int getCountStations() {
-        return this.countStations;
-    }
-
-    public int getLastStation() {
-        return this.lastStation;
-    }
-
-    public int getMinVolume() {
-        return this.minVolume;
-    }
-
-    public int getMaxVolume() {
-        return this.maxVolume;
-    }
-
-//    public void setFirstStation(int firstStation) {
-//        this.firstStation = firstStation;
-//    }
-//
-//    public void setCountStations(int countStations) {
-//        this.countStations = countStations;
-//    }
-//
-//    public void setLastStation(int lastStation) {
-//        this.lastStation = lastStation;
-//    }
-//
-//    public void setMinVolume(int minVolume) {
-//        this.minVolume = minVolume;
-//    }
-//
-//    public void setMaxVolume(int maxVolume) {
-//        this.maxVolume = maxVolume;
-//    }
-//
-//    public boolean equals(Object o) {
-//        if (o == this) {
-//            return true;
-//        } else if (!(o instanceof Radio)) {
-//            return false;
-//        } else {
-//            Radio other = (Radio)o;
-//            if (!other.canEqual(this)) {
-//                return false;
-//            } else if (this.getCurrentStation() != other.getCurrentStation()) {
-//                return false;
-//            } else if (this.getCurrentVolume() != other.getCurrentVolume()) {
-//                return false;
-//            } else if (this.getFirstStation() != other.getFirstStation()) {
-//                return false;
-//            } else if (this.getCountStations() != other.getCountStations()) {
-//                return false;
-//            } else if (this.getLastStation() != other.getLastStation()) {
-//                return false;
-//            } else if (this.getMinVolume() != other.getMinVolume()) {
-//                return false;
-//            } else {
-//                return this.getMaxVolume() == other.getMaxVolume();
-//            }
-//        }
-//    }
-//
-//    protected boolean canEqual(Object other) {
-//        return other instanceof Radio;
-//    }
-//
-//    public int hashCode() {
-//        int PRIME = true;
-//        int result = 1;
-//        result = result * 59 + this.getCurrentStation();
-//        result = result * 59 + this.getCurrentVolume();
-//        result = result * 59 + this.getFirstStation();
-//        result = result * 59 + this.getCountStations();
-//        result = result * 59 + this.getLastStation();
-//        result = result * 59 + this.getMinVolume();
-//        result = result * 59 + this.getMaxVolume();
-//        return result;
-//    }
-//
-//    public String toString() {
-//        int var10000 = this.getCurrentStation();
-//        return "Radio(currentStation=" + var10000 + ", currentVolume=" + this.getCurrentVolume() + ", firstStation=" + this.getFirstStation() + ", countStations=" + this.getCountStations() + ", lastStation=" + this.getLastStation() + ", minVolume=" + this.getMinVolume() + ", maxVolume=" + this.getMaxVolume() + ")";
-//    }
 }
